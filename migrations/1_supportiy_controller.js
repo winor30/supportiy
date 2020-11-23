@@ -2,6 +2,11 @@ const SupportiyController = artifacts.require('controller/SupportiyController')
 const DepositProof = artifacts.require('proof/DepositProof')
 const GovToken = artifacts.require('token/GovToken')
 
+const DAI_ADDRESS_RINKEBY = process.env.DAI_ADDRESS_RINKEBY;
+const CDAI_ADDRESS_RINKEBY = process.env.CDAI_ADDRESS_RINKEBY;
+const DAI_ADDRESS = process.env.DAI_ADDRESS;
+const CDAI_ADDRESS = process.env.CDAI_ADDRESS;
+
 module.exports = async function (deployer) {
   const isRinkeby = deployer.network.includes('rinkeby')
 
@@ -11,11 +16,11 @@ module.exports = async function (deployer) {
   const symbolDP = 'SUPDP'
 
   const daiAddress = isRinkeby
-    ? '0x5592ec0cfb4dbc12d3ab100b257153436a1f0fea'
-    : '0x6B175474E89094C44Da98b954EedeAC495271d0F';
+    ? DAI_ADDRESS_RINKEBY
+    : DAI_ADDRESS;
   const cdaiAddress = isRinkeby
-    ? '0x6d7f0754ffeb405d23c51ce938289d4835be3b14'
-    : '0x5d3a536E4D6DbD6114cc1Ead35777bAB948E3643';
+    ? CDAI_ADDRESS_RINKEBY
+    : CDAI_ADDRESS;
 
   await deployer.deploy(DepositProof, nameDP, symbolDP, daiAddress, cdaiAddress)
 
