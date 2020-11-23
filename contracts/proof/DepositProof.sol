@@ -29,12 +29,12 @@ contract DepositProof is ERC721, Ownable {
   }
 
   modifier onlyTokenOwner(address tokenOwner, uint256 tokenId) {
-    require(ownerOf(tokenId) == tokenOwner || _owner == tokenOwner, "DepositProof/only-token-owner");
+    require(ownerOf(tokenId) == tokenOwner, "DepositProof/only-token-owner");
     _;
   }
 
   modifier onlyIssuer {
-    require(_issuer == msg.sender || _owner == msg.sender, "right minting token has only issuer");
+    require(_issuer == msg.sender, "right minting token has only issuer");
     _;
   }
 
