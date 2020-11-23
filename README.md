@@ -11,11 +11,11 @@ Supportiy is a new support schema that allows continuous support by sending the 
 
 ![architecture](assets/new-support-scheme-architecture.jpg)
 
-#### Usage
+## Usage
 
 Because of truffle-based development, we use truffle in deployment and compilation.
 
-###### Deployments
+#### Deployments
 
 First create .env file with reference to .env.sample to set the environment variables.
 
