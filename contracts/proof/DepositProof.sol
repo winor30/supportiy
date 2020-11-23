@@ -80,7 +80,6 @@ contract DepositProof is ERC721, Ownable {
   }
 
   function setIssuer(address issuer) public onlyIssuer {
-    require(msg.sender == issuer, "only issuer has right to change mint right");
     _issuer = issuer;
   }
 
